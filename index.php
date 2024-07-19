@@ -31,11 +31,12 @@
             <option selected>Selecione o Estado</option>
             <option value="1">Acre</option>
             <option value="2">Alagoas</option>
+            <option value="3">Amapá</option>
             <option value="4">Amazonas</option>
             <option value="5">Bahia</option>
             <option value="6">Ceará</option>
             <option value="7">Distrito Federal</option>
-            <option value="8">Espírito Santo </option>
+            <option value="8">Espírito Santo</option>
             <option value="9">Goiás</option>
             <option value="10">Maranhão</option>
             <option value="11">Mato Grosso</option>

@@ -22,8 +22,6 @@
 
         $rep_senha = $_POST["rep_senha"];
 
-        if($senha === $rep_senha)
-
         echo "<hr>";
         
         echo " Nome recebido foi: " . $nome;
@@ -55,7 +53,7 @@
         echo " <br>";
 
         echo " O CPF recebido foi: " . $cpf;
-
+        
         echo " <br>";
 
         echo " A Senha recebida foi: " . $senha;
@@ -67,11 +65,12 @@
         echo " <hr>";
 
     }
+    
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -83,6 +82,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="Css/style.php" />
+
 
     <link rel="stylesheet" href="style.css">
 
@@ -136,17 +137,35 @@
             <label for="">Email:</label>
             <input class="form-control" type="text" placeholder="Ex. marcelo123@gmail.com" name="email">
             <label for="">Data de Nascimento:</label>
-            <input class="form-control" type="date"name="nasc" id="nasc">
+            <input class="form-control" type="date" name="nasc" id="nasc">
             <label for="">CPF:</label>
             <input class="form-control" type="text" placeholder="Ex. 123.456.789-12" name="cpf">
             <label for="">Senha:</label>
-            <input class="form-control" type="password" name="senha">
+            <input class="form-control" type="password" name="senha" required>
             <label for="">Repetir Senha:</label>
-            <input class="form-control" type="password" name="rep_senha">
+            <input class="form-control" type="password" name="rep_senha" required>
 
-            <input class="form-control btn btn-success" type="submit" value="Cadastrar">
-            <input class="form-control btn btn-secondary" type="reset" value="Voltar">
+            <?php
+            if(isset($_POST["bt_nome"])){
+            if($senha === $rep_senha){
+                echo '<div class="container text-center"/>' ;
+                echo '<p class="text-center fs-3 text-success ">Senha Válida</p>';
+                echo "</div>";
+            }
+            else{
+                echo '<div class="container text-center"/>' ;
+                echo '<p class="text-center fs-3 text-danger ">Senha Inválida</p>';
+                echo "</div>";
+                }
+            }
+            ?>
+
+            <div class="container">
+                <input class="form-control btn btn-success" type="submit" value="Cadastrar">
+                <input class="form-control btn btn-secondary" type="reset" value="Voltar">
+            </div>
         </form>
+
     </div>
 </body>
 

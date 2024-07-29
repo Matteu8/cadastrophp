@@ -94,13 +94,13 @@
         <h1>Cadastro de Pessoas</h1>
     </div>
     <div class="container">
-        <form action="" method="post">
+        <form action="banco.php" method="post">
             <label for="">Nome:</label>
-            <input class="form-control" type="text" placeholder="Nome completo" name="bt_nome">
+            <input class="form-control" type="text" placeholder="Nome completo" name="bt_nome" required>
             <label for="">Endereço:</label>
-            <input class="form-control" type="text" placeholder="Ex. Rua Ceará Nunes" name="bt_endereco">
+            <input class="form-control" type="text" placeholder="Ex. Rua Ceará Nunes" name="bt_endereco" required>
             <label for="">Estado:</label> <!-- Selecione o Estado -->
-            <select class="form-select" id="estados" name="estados">
+            <select class="form-select" id="estados" name="estados" required>
                 <option selected>Selecione o Estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -131,20 +131,19 @@
                 <option value="TO">Tocantins</option>
             </select><!-- FIM Selecione o Estado -->
             <label for="">Cidade:</label>
-            <input class="form-control" type="text" name="cidade">
+            <input class="form-control" type="text" name="cidade" required>
             <label for="">Telefone:</label>
-            <input class="form-control" type="text" name="telefone">
+            <input class="form-control" type="text" name="telefone" required>
             <label for="">Email:</label>
-            <input class="form-control" type="text" placeholder="Ex. marcelo123@gmail.com" name="email">
+            <input class="form-control" type="text" placeholder="Ex. marcelo123@gmail.com" name="email" required>
             <label for="">Data de Nascimento:</label>
-            <input class="form-control" type="date" name="nasc" id="nasc">
+            <input class="form-control" type="date" name="nasc" id="nasc" required>
             <label for="">CPF:</label>
-            <input class="form-control" type="text" placeholder="Ex. 123.456.789-12" name="cpf">
+            <input class="form-control" type="text" placeholder="Ex. 123.456.789-12" name="cpf" required>
             <label for="">Senha:</label>
             <input class="form-control" type="password" name="senha" required>
             <label for="">Repetir Senha:</label>
             <input class="form-control" type="password" name="rep_senha" required>
-
             <?php
             if(isset($_POST["bt_nome"])){
             if($senha === $rep_senha){
@@ -156,10 +155,9 @@
                 echo '<div class="container text-center"/>' ;
                 echo '<p class="text-center fs-3 text-danger ">Senha Inválida</p>';
                 echo "</div>";
-                }
+            }
             }
             ?>
-
             <div class="container">
                 <input class="form-control btn btn-success" type="submit" value="Cadastrar">
                 <input class="form-control btn btn-secondary" type="reset" value="Voltar">

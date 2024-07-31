@@ -1,5 +1,8 @@
 <?php
-    
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
     if(isset($_POST["bt_nome"])){
         
         $nome = $_POST["bt_nome"];
@@ -22,6 +25,38 @@
 
         $rep_senha = $_POST["rep_senha"];
 
+    }
+        if(isset($_POST["senha"])){
+          $senha = $_POST["senha"];
+            $rep_senha = $_POST["rep_senha"];
+
+        $_SESSION["bt_nome"] = $_POST["bt_nome"];
+
+        $_SESSION["bt_endereco"] = $_POST["bt_endereco"];
+
+        $_SESSION["estados"] = $_POST["estados"];
+
+        $_SESSION["cidade"] = $_POST["cidade"];
+
+        $_SESSION["telefone"] = $_POST["telefone"];
+
+        $_SESSION["email"] = $_POST["email"];
+
+        $_SESSION["nasc"] = $_POST["nasc"];
+
+        $_SESSION["cpf"] = $_POST["cpf"];
+
+        $_SESSION["senha"] = $_POST["senha"];
+
+    }
+
+    if(isset($senha)){
+        if($senha === $rep_senha){
+            header("Location:banco.php");
+    
+        }
+
+        /*
         echo "<hr>";
         
         echo " Nome recebido foi: " . $nome;
@@ -63,9 +98,8 @@
         echo " A Senha Repetida recebida foi: " . $rep_senha;
 
         echo " <hr>";
-
+        */
     }
-    
 
 ?>
 
@@ -91,10 +125,10 @@
 
 <body>
     <div class="container text-center">
-        <h1>Cadastro de Pessoas</h1>
+        <h1 class="mt-3">Cadastro de Pessoas</h1>
     </div>
     <div class="container">
-        <form action="banco.php" method="post">
+        <form action="" method="post">
             <label for="">Nome:</label>
             <input class="form-control" type="text" placeholder="Nome completo" name="bt_nome" required>
             <label for="">Endereço:</label>
@@ -145,18 +179,15 @@
             <label for="">Repetir Senha:</label>
             <input class="form-control" type="password" name="rep_senha" required>
             <?php
-            if(isset($_POST["bt_nome"])){
-            if($senha === $rep_senha){
-                echo '<div class="container text-center"/>' ;
-                echo '<p class="text-center fs-3 text-success ">Senha Válida</p>';
-                echo "</div>";
-            }
-            else{
-                echo '<div class="container text-center"/>' ;
-                echo '<p class="text-center fs-3 text-danger ">Senha Inválida</p>';
-                echo "</div>";
-            }
-            }
+                if(isset($rep_senha)){
+                    if($senha === $rep_senha){
+                        
+                    }else{
+                        echo '<div class="container text-center"/>' ;
+                        echo '<p class="text-center fs-3 text-danger ">Senha Inválida</p>';
+                        echo "</div>";
+                    }
+                }
             ?>
             <div class="container">
                 <input class="form-control btn btn-success" type="submit" value="Cadastrar">

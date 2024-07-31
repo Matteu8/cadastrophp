@@ -1,4 +1,28 @@
 <?php
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
+    $nome = $_SESSION["bt_nome"];
+
+    $endereco = $_SESSION["bt_endereco"];
+
+    $estados = $_SESSION["estados"];
+
+    $cidade = $_SESSION["cidade"];
+
+    $telefone = $_SESSION["telefone"];
+
+    $email = $_SESSION["email"];
+
+    $nasc = $_SESSION["nasc"];
+
+    $cpf = $_SESSION["cpf"];
+
+    $senha = $_SESSION["senha"];
+
+
+    /*
     if(isset($_POST["bt_nome"])){   
         
     $nome = $_POST["bt_nome"];
@@ -25,7 +49,7 @@
     
     
 }
-
+*/
 ?>
 
 <!DOCTYPE html>
@@ -50,18 +74,51 @@
     <div class="container text-center">
     <h1>Dados</h1>
     </div>
-    <div class="container">
-        <p>Nome: <?php echo $nome ?></p>
-        <p>Endereço: <?php echo $endereco ?></p>
-        <p>Estado: <?php echo $estados ?></p>
-        <p>Cidade: <?php echo $cidade ?></p>
-        <p>Telefone: <?php echo $telefone ?></p>
-        <p>Email: <?php echo $email ?></p>
-        <p>Data de Nascimento: <?php echo $nasc ?></p>
-        <p>CPF: <?php echo $cpf ?></p>
-        <p>Senha: <?php echo $senha ?></p>
+    <div class="container text-bg-secondary p-3">
+    <table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Nome</th>
+      <th scope="col">Endereço</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Cidade</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Data de Nascimento</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Senha</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row"><?php echo $nome ?></td>
+      <td><?php echo $endereco ?></td>
+      <td><?php echo $estados ?></td>
+      <td><?php echo $cidade ?></td>
+      <td><?php echo $telefone ?></td>
+      <td><?php echo $email ?></td>
+      <td><?php echo $nasc ?></td>
+      <td><?php echo $cpf ?></td>
+      <td><?php echo $senha ?></td>
+    </tr>
+    
+  </tbody>
+</table>
         
-        <a class="form-control btn btn-secondary" href="index.php">Voltar</a>
+        <hr>
+        <!-- 
+        <p>Nome:</p>
+        <p>Endereço:</p>
+        <p>Estado:</p>
+        <p>Cidade:</p>
+        <p>Telefone:></p>
+        <p>Email:</p>
+        <p>Data de Nascimento:</p>
+        <p>CPF:</p>
+        <p>Senha:</p>
+        -->
+        <a class="form-control btn btn-info" href="index.php">Voltar</a>
         
     </div>
 </body>

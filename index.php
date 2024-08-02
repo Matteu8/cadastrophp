@@ -52,6 +52,8 @@
         /* Senha */
     if(isset($senha)){
         if($senha === $rep_senha){
+
+            
             header("Location:banco.php");
     
         }

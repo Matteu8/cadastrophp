@@ -49,13 +49,13 @@
         $_SESSION["senha"] = $_POST["senha"];
 
     }
-
+        /* Senha */
     if(isset($senha)){
         if($senha === $rep_senha){
             header("Location:banco.php");
     
         }
-
+        /* Fim Senha */
     }
 
 ?>

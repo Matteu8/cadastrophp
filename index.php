@@ -56,49 +56,6 @@
     
         }
 
-        /*
-        echo "<hr>";
-        
-        echo " Nome recebido foi: " . $nome;
-
-        echo " <br>";
-        
-        echo " Endereço recebido foi: " . $endereco;
-
-        echo " <br>";
-        
-        echo " O Estado recebido foi: " . $estados;
-
-        echo " <br>";
-
-        echo " A Cidade recebida foi: " . $cidade;
-
-        echo " <br>";
-
-        echo " O Telefone recebido foi: " . $telefone;
-
-        echo " <br>";
-
-        echo " O Email recebido foi: " . $email;
-
-        echo " <br>";
-
-        echo " A data de nascimento recebida foi: " . $nasc;
-
-        echo " <br>";
-
-        echo " O CPF recebido foi: " . $cpf;
-        
-        echo " <br>";
-
-        echo " A Senha recebida foi: " . $senha;
-
-        echo " <br>";
-
-        echo " A Senha Repetida recebida foi: " . $rep_senha;
-
-        echo " <hr>";
-        */
     }
 
 ?>

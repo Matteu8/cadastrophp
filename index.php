@@ -191,7 +191,7 @@
             ?>
             <div class="container">
                 <input class="form-control btn btn-success" type="submit" value="Cadastrar">
-                <input class="form-control btn btn-secondary" type="reset" value="Voltar">
+                <input class="form-control btn btn-secondary" type="reset" value="Redefinir">
             </div>
         </form>
 

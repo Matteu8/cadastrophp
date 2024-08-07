@@ -1,13 +1,56 @@
 <?php
+include("conexao.php");
 
 if(!isset($_SESSION)){
     session_start();
 } 
 
+if(isset($_POST["nome"])){
+        
+    $nome = $_POST["nome"];
+
+    $telefone = $_POST["telefone"];
+
+    $email = $_POST["email"];
+    
+    $cpf = $_POST["cpf"];
+
+    $senha = $_POST["senha"];
+
+    $rep_senha = $_POST["rep_senha"];
+
+}
+
+if(isset($_POST["senha"])){
+    $senha = $_POST["senha"];
+    $rep_senha = $_POST["rep_senha"];
+
+    if($senha === $rep_senha){
+        $mysqli->query("INSERT INTO cadastro_cliente (nome, telefone, email, cpf, senha) values('$nome', '$telefone', '$email', '$cpf', '$senha')") or
+            die($mysqlierrno);
+            header("Location:cadastro_lanche.php");
+    }else{
+        echo "<div class='alert alert-danger' role='alert'>";
+        echo "<div>";
+    }
+
+  $_SESSION["nome"] = $_POST["nome"];
+
+  $_SESSION["telefone"] = $_POST["telefone"];
+
+  $_SESSION["email"] = $_POST["email"];
+
+  $_SESSION["cpf"] = $_POST["cpf"];
+
+  $_SESSION["senha"] = $_POST["senha"];
+
+    
+}
+
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br" data-bs-theme="">
+<html lang="pt-br" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +62,7 @@ if(!isset($_SESSION)){
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="Css/style.php"/>
+    <link rel="stylesheet" type="text/css" href="Css/style.php" />
 
 
     <link rel="stylesheet" href="style.css">
@@ -33,7 +76,7 @@ if(!isset($_SESSION)){
     <div class="container">
         <form action="" method="post">
             <label for="">Nome:</label>
-            <input class="form-control" type="text" placeholder="Nome completo" name="bt_nome" required>
+            <input class="form-control" type="text" placeholder="Nome completo" name="nome" required>
             <label for="">Telefone:</label>
             <input class="form-control" type="text" name="telefone" required>
             <label for="">Email:</label>
@@ -44,7 +87,18 @@ if(!isset($_SESSION)){
             <input class="form-control" type="password" name="senha" required>
             <label for="">Repetir Senha:</label>
             <input class="form-control" type="password" name="rep_senha" required>
+
+            <?php
+                if(isset($_POST["senha"])){
             
+                if($senha === $rep_senha){
+            
+                }else{
+                    echo "<div class='container text-center mt-3'> <p>Senha Incorreta</p> </div>";
+                }
+            }
+            ?>
+
             <div class="container">
                 <input class="form-control btn btn-success" type="submit" value="Cadastrar">
                 <input class="form-control btn btn-secondary" type="reset" value="Redefinir">

@@ -1,7 +1,7 @@
 <?php
 
     $hostname = "localhost";
-    $banco = "banco_pessoas";
+    $banco = "atv_lanche";
     $usuario = "root";
     $senha = "";
 
@@ -11,6 +11,5 @@
         echo "Falha ao conectar: (" . $mysqli->connect_errno . ") " . $mysqli->connect_errno;
 
     }
-
 
 ?>
